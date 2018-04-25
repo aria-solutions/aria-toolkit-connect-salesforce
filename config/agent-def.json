@@ -1,0 +1,13 @@
+{
+  "FirstName": "Agent",
+  "LastName": "Smith",
+  "Email": "my-email@example.com",
+  "Alias": "agent1",
+  "TimeZoneSidKey": "America/Denver",
+  "LocaleSidKey": "en_US",
+  "EmailEncodingKey": "UTF-8",
+  "LanguageLocaleKey": "en_US",
+  "profileName": "Standard User",
+  "permsets": ["Amazon_Connect_Toolkit_Agent", "Amazon_Connect_Toolkit_Manager"],
+  "generatePassword": true
+}
