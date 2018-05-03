@@ -19,6 +19,16 @@ limitations under the License.
 
   <apex:SLDS />
   <apex:outputPanel rendered="{!NOT(ISBLANK(contactId)) && NOT(ISBLANK($Setup.Amazon_Connect__c.url__c))}">
-    <apex:outputLink value="{!JSENCODE($Setup.Amazon_Connect__c.url__c)}/connect/get-recording?format=mp3&callLegId={!contactId}">Download Call Recording</apex:outputLink>
+    <a id="callRecordDownload">Download Call Recording</a>
   </apex:outputPanel>
+
+  <script>
+    var recordLink = document.getElementById('callRecordDownload');
+    var callId = "{!contactId}";
+    var i = callId.indexOf("::");
+    if(i >= 0)
+      callId = callId.slice(0, i);
+
+    recordLink.href = "{!JSENCODE($Setup.Amazon_Connect__c.url__c)}/connect/get-recording?format=mp3&callLegId=" + callId;
+  </script>
 </apex:component>
