@@ -32,7 +32,7 @@ sfdx force:mdapi:deploy -u <sfdx alias for your org> -d <metadata output directo
 - Set up your Amazon Connect Call Flows
 
 Once in Salesforce, the phone will display a login button. This will open a new window where you will be able to log in with your Amazon Connect credentials. Once signed in, the Amazon Connect Contact Control Panel will appear in Salesforce.
-For detailed instructions and further configuration please refer to the [Setup and User Guide](https://www.ariasolutions.com).
+For detailed instructions and further configuration please refer to the [Setup and User Guide](https://www.ariasolutions.com/toolkit-for-amazon-connect-setup-guide/).
 
 # Third Party Libraries
 The Toolkit for Amazon Connect can be integrated with third party libraries to extend its capabilities. For example, Salesforce Einstein sentiment analysis can be performed using the following library: https://github.com/muenzpraeger/salesforce-einstein-platform-apex
