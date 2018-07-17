@@ -1,0 +1,40 @@
+
+Example Visualforce component code that utilizes the Amazon Connect Streaming API to display the Amazon Connect call recording player inside of Saleforce. This can be added to Visualforce pages. 
+
+Note: The "contactId" must be filled with a contact ID that matches up with the contact ID from Amazon Connect.
+
+
+<apex:component id="ACT_CallRecordingPlayer">
+<apex:attribute name="contactId" description="Amazon Connect Contact Id for the recording" type="String" required="true"/>
+
+<apex:SLDS />
+<apex:outputPanel rendered="{!NOT(ISBLANK(contactId))}">
+<div id="audioRecordingPlayer" class="" style="padding-left:175px">
+<audio id="audio" controls='controls' preload="auto">
+<source id="audioSource" src="" type="audio/mpeg" onerror="audioError()"/>
+{!$Label.ACT_Browser_not_supported}
+</audio>
+</div>
+<p id="error" style="padding-left:175px" class="slds-hide" title="{!$Label.ACT_Error_text_for_audio_message}">{!$Label.ACT_Error_text_for_audio_message}</p>
+</apex:outputPanel>
+<script type="text/javascript">
+function audioError()
+{
+var element = document.getElementById("audioRecordingPlayer");
+element.classList.add("slds-hide");
+var error = document.getElementById("error");
+error.classList.remove("slds-hide");
+}
+
+var audio = document.getElementById('audio');
+var source = document.getElementById('audioSource');
+var callId = "{!contactId}";
+var i = callId.indexOf("::");
+if(i >= 0)
+callId = callId.slice(0, i);
+
+source.src = '<apex:outputText value="{!JSENCODE($Setup.Amazon_Connect__c.url__c)}" />/connect/get-recording?format=mp3&callLegId=' + callId;
+
+audio.load();
+</script>
+</apex:component>

@@ -1,0 +1,32 @@
+
+Example code for Call Attributes Display:
+
+1. In the ACT_Console and ACT_Lightning Visualforce pages, insert the following:
+
+<apex:remoteObjectModel name="Call_Attributes_Configuration__mdt" fields="Id" jsShorthand="Call_Attributes_Configuration">
+
+2. Create a Jasascript file with the below code and load it as a Static Resource. This can be used on a call received.
+
+3. Import the static resource javascript file into one of the console visualforce pages and write your code accordingly so it can be utilized.
+
+4. Once this has been completed, the values from Custom Metadata CallAttributeConfiguration can be displayed inside a div in the UI or somewhere else within Salesforce.
+
+        var callAttributeSO = new SObjectModel.Call_Attributes_Configuration();
+        callAttributeSO.retrieve({}, function(err, records, event) {
+          if (err) {
+            connect.getLog().
+              error("ACToolkit:CallAttributesDisplay:retrieveCallAttributeConfiguration unable to retrieve Call Attribute Configuration statuses.").
+              withObject(err);
+           }
+          else {
+            var callAttributeConfiguration = [];
+            records.forEach(function(record) {
+              var key = record.get("Attribute_Name");
+              var label = record.get("CCP_Attribute_Label")
+              callAttributeConfiguration[key] = {'label': label};
+            });
+          }
+});
+
+
+
