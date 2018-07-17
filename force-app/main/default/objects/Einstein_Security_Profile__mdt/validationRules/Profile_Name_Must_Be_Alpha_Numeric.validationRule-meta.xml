@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Profile_Name_Must_Be_Alpha_Numeric</fullName>
+    <active>true</active>
+    <description>The profile name must be alphanumeric and cannot contain any other characters, so that it can be used as a key in the session cache.</description>
+    <errorConditionFormula>NOT(REGEX(DeveloperName, "[a-zA-Z0-9]+"))</errorConditionFormula>
+    <errorMessage>The profile name can only contain alphanumeric characters. No spaces, underscores or dashes are allowed.</errorMessage>
+</ValidationRule>

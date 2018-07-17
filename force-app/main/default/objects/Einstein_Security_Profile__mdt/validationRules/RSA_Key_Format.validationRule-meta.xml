@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RSA_Key_Format</fullName>
+    <active>true</active>
+    <description>Validate the RSA Key format for the proper prefix and suffix.</description>
+    <errorConditionFormula>OR( 
+  NOT(BEGINS(TRIM(RSA_Key__c), "-----BEGIN RSA PRIVATE KEY-----")),
+  NOT(RIGHT(TRIM(RSA_Key__c), 29) = "-----END RSA PRIVATE KEY-----")
+)</errorConditionFormula>
+    <errorMessage>The provided input does not appear to be an RSA key. Please make sure the key contains the proper prefix and suffix.</errorMessage>
+</ValidationRule>

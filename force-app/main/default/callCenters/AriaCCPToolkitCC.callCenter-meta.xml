@@ -43,7 +43,7 @@
         <items>
             <label>Amazon Connect CCP URL</label>
             <name>reqConnectURL</name>
-            <value>https://sacharia1.awsapps.com/connect/ccp</value>
+            <value>https://YourConnectInstanceHere.awsapps.com/connect/ccp</value>
         </items>
         <items>
             <label>Console Phone Width</label>

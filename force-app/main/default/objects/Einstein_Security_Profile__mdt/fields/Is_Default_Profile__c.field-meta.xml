@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_Default_Profile__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Checkbox to select a record as the default profile.</description>
+    <externalId>false</externalId>
+    <fieldManageability>SubscriberControlled</fieldManageability>
+    <inlineHelpText>Please select whether this profile becomes the default profile. A default profile is required. If default profile already exists when a new record is created and marked as default, the default flag of the previous record will be unchecked.</inlineHelpText>
+    <label>Is Default Profile</label>
+    <type>Checkbox</type>
+</CustomField>
